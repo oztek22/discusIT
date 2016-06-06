@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <title>Demo Page</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+ </head>
+<body>
+        <!-- HEADER AND NAVBAR -->
+        <header>
+            <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Business Model</a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#/about"> About</a></li>
+                    <li><a href="#/register"> Register</a></li>
+                    <li><a href="#/login"> LogIn</a></li>
+                </ul>
+            </div>
+            </nav>
+        </header>
+
+<!-- Main Content -->
+    <div class="jumbotron">
+        <div class="container">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+                <div ng-view></div>
+            </div>
+        </div>
+    </div>
+
+<!-- Footer -->
+	<footer>
+            <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-footer">
+                    <div class="navbar-brand">@Copyright</div>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#/about"> About</a></li>
+                    <li><a href="#/register"> Register</a></li>
+                    <li><a href="#/login"> LogIn</a></li>
+                </ul>
+            </div>
+            </nav>
+        </footer>
+
+    <script src="//code.angularjs.org/1.2.20/angular.js"></script>
+    <script src="//code.angularjs.org/1.2.20/angular-route.js"></script>
+    <script src="//code.angularjs.org/1.2.13/angular-cookies.js"></script>
+
+    <script src="app.js"></script>
+    <script src="app-services/authentication.service.js"></script>
+    <script src="app-services/flash.service.js"></script>
+    <script src="app-services/user.service.local-storage.js"></script>
+
+    <script src="home/home.controller.js"></script>
+    <script src="login/login.controller.js"></script>
+    <script src="register/register.controller.js"></script>
+</body>
+</html>
