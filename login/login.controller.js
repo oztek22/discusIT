@@ -1,33 +1,29 @@
-﻿(function () {
-    'use strict';
+﻿(function(){
+	'use strict';
 
-    angular
-        .module('app')
-        .controller('LoginController', LoginController);
+	angular
+		.module('app')
+		.controller('LoginController',LoginController);
 
-    LoginController.$inject = ['$location', 'AuthenticationService', 'FlashService'];
-    function LoginController($location, AuthenticationService, FlashService) {
-        var vm = this;
+		LoginController.$inject = ['$scope','$location','userStorage'];
+		function LoginController($scope, $location, userStorage) {
+			$scope.list = [];
+			$scope.login = function() {
+	            userStorage.GetByUsername($scope.username)
+                    .then(function (user) {
+                    	if ($scope.username === 'admin' && $scope.userpassword === 'admin') {
+                    		$location.path('/admin');
+                    	}
+                    	else {
+	                        if (user !== null && user.password === $scope.userpassword) {
+	                            $location.path('/home');
+	                        } else {
+	                            $scope.message = 'Username or password is incorrect';
+	                        }
+                    	}
+                    });
+	        };
+		}
 
-        vm.login = login;
-
-        (function initController() {
-            // reset login status
-            AuthenticationService.ClearCredentials();
-        })();
-
-        function login() {
-            vm.dataLoading = true;
-            AuthenticationService.Login(vm.username, vm.password, function (response) {
-                if (response.success) {
-                    AuthenticationService.SetCredentials(vm.username, vm.password);
-                    $location.path('/');
-                } else {
-                    FlashService.Error(response.message);
-                    vm.dataLoading = false;
-                }
-            });
-        };
-    }
 
 })();

@@ -107,7 +107,9 @@
         function getUsers() {
             if(!localStorage.users){
                 localStorage.users = JSON.stringify([]);
-            }
+		
+        }
+
 
             return JSON.parse(localStorage.users);
         }

@@ -1,0 +1,28 @@
+Search: 	<input type="text" ng-model="searchKey"> By
+			<select name="searchBy" ng-model="searchBy" ng-change="updateTabel()">
+			    <option value="Id">Id</option>
+			    <option value="Name">Name</option>
+			    <option value="Email">Email</option>
+			</select>
+<br/><br/><br/>
+<table class="table table-bordered">
+	<tbody>
+		<tr>
+			<td>Id</td>
+			<td>Name</td>
+			<td>Email</td>
+			<td>Account Type</td>
+			<td>Landline Number</td>
+			<td>Delete</td>
+		</tr>
+		
+		<tr ng-repeat="n in a">
+			<td>{{ list[n].id }}</td>
+			<td>{{ list[n].name }}</td>
+			<td>{{ list[n].email }}</td>
+			<td>{{ list[n].aType }}</td>
+			<td>({{ list[n].llCode }}){{ list[n].llNum }}</td>
+			<td><a href="#/admin" ng-click="deleteUser(list[n].id)">Delete Account</a></td>
+		</tr>
+	</tbody>
+</table>
