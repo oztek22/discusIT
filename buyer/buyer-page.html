@@ -1,35 +1,60 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 	
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+		
+		
+		
 		<script src="search.js"></script>
 		<script src="productList.js"></script>
 		<script src="user-discription.js"></script>
 		
 		<style>
+				
 				table,th,td {
 					border: 1px solid #D0D0D0 ;
 					border-collapse: collapse;
 					padding: 15px;
+					margin-left:15px;
 				}
-				th{
-					color:#585858;
-					background-color:#E0E0E0 ;
+				#div1{
+					margin-top:10px;
+			
 				}
-		</style>
+				#id01{
+				   border-radius: 25px;
+				}
+				
+				
+				</style>
 	</head>
 
 	<body>
-		
-		
-		<input id="tv1"  placeholder="Search" >
-		<button onclick="fun()">Search</button>
-		<button onclick="mycart(myArray)">MyCART </button>
+		<div id="div1">
+		<div class="col-xs-4" >
+        
+        <input class="form-control" id="tv1" type="text" placeholder="Search">
+      
+		</div>
+  
+		<button onclick="fun()" type="button" class="btn btn-default">
+      <span class="glyphicon glyphicon-search"></span> Search
+    </button>
+
+		 <button  onclick="mycart(myArray)" type="button" class="btn btn-default ">
+          <span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart
+        </button></div>
 		<br><br>
 	
 		<div id="d"></div>
 		
-		<table id="id01">
+		<table id="id01" >
 		</table>
 	
 	<script>
