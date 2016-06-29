@@ -1,0 +1,34 @@
+var myArray = [
+{
+"pName": "Shoes",
+"pId": "1",
+"pImage":"im.jpg",
+"pDis":{"size":"10","color":"gray"},
+"pPrice":"999",
+"sId":"909"
+},
+{
+"pName": "shirt",
+"pId": "2",
+"pImage":"im.jpg",
+"pDis":{"size":"XL","color":"red"},
+"pPrice":"999",
+"sId":"909"
+},
+{
+"pName": "belt",
+"pId": "3",
+"pImage":"im.jpg",
+"pDis":{"size":"10","color":"black"},
+"pPrice":"999",
+"sId":"909"
+},
+{
+"pName": "pen",
+"pId": "4",
+"pImage":"im.jpg",
+"pDis":{"size":"0.5","color":"blue"},
+"pPrice":"999",
+"sId":"909"
+}
+]
