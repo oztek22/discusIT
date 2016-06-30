@@ -42,7 +42,13 @@
                   templateUrl: 'admin/admin.view.html',
                   controller: 'AdminController',
                   controllerAs: 'adc'
-            })	
+            })
+
+			.when('buyer-home', {
+                templateUrl: 'buyer/buyer-page.html',
+                
+            })
+
 
             .otherwise({ redirectTo: '/home' });
     }
