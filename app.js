@@ -44,7 +44,7 @@
                   controllerAs: 'adc'
             })
 
-			.when('buyer-home', {
+			.when('/buyer-home', {
                 templateUrl: 'buyer/buyer-page.html',
                 
             })
