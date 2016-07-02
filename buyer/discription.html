@@ -1,0 +1,42 @@
+ <div ng-repeat="per in personss" style="margin-left:25px;margin-right:15px">
+ 
+ <h1>{{per.pName}}<h1>
+  
+<table id="dis" class="table-bordered">
+					   					   
+<tr>
+<td rowspan="6"><img height=500 width=500 ng-src="{{per.pImage}}"/></td>
+<td>Size</td>
+<td>{{per.pDis.size}}</td>
+</tr>
+<tr>
+<td>Color</td>
+<td>{{per.pDis.color}}</td>
+</tr>
+<tr>
+<td>Product Id</td>
+<td>{{per.pId}}</td>
+</tr>
+<tr>
+<td>Selle Id</td>
+<td>{{per.sId}}</td>
+</tr>
+<tr>
+<td>Price (Rs.)</td>
+<td>{{per.pPrice}}</td>
+</tr>
+<tr>
+<td><button  ng-click="addcart(per.pId)" type="button" class="btn btn-primary btn-sm" ><span class="glyphicon glyphicon-shopping-cart"></span> Add To Cart</button></td>
+<td><button  ng-click="removecart(per.pId)" type="button" class="btn btn-danger btn-sm" ><span class="glyphicon glyphicon-shopping-cart"></span> Remove From Cart</button></td>
+</tr>
+								   
+</table>
+<div style="margin-left:15px;margin-top:10px">
+<a href="#/cart"><button  ng-click="mycart()" type="button" class="btn btn-warning " >
+          <span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart 
+        </button></a>
+		
+<a href="#/"><button type="button" class="btn btn-danger" ><span class="glyphicon "></span> Back To HomePage</button></td></a>
+
+</div>		
+</div>		

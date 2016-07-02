@@ -1,0 +1,23 @@
+<div id="div1">
+		<div class="col-xs-4" >
+        
+        <input class="form-control" id="tv1" type="text" placeholder="Search" ng-model="search.pName">
+      
+		</div>
+  
+
+	     <a href="#/cart">	 <button  ng-click="mycart()" type="button" class="btn btn-warning " >
+     <span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart 
+        </button></a></div>
+		<br><br>
+
+<div style="margin-left:15px;margin-right:15px">
+
+<table id="id01" class="table">
+<tr><th id="#th1">Image</th><th id="#th1">Product Name</th><th id="#th1">Product Id</th><th id="#th1">Seller Id</th><th id="#th1">Price(Rs.)</th></tr>
+<tr ng-repeat="person in list | filter:search"><td><a href="#/dis"><img ng-click= "display(person.pId)" height=100 width=100 ng-src="{{person.pImage}}"/></a></td><td>{{person.pName}}</td><td>{{person.pId}}</td><td>{{person.sId}}</td><td>{{person.pPrice}}</td></tr>
+					   
+
+
+</table>
+</div>
