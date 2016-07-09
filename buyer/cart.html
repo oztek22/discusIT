@@ -1,0 +1,32 @@
+<center><h1>WelCome To Shopping Cart</h1></center>
+
+<div style="margin-left:15px;margin-right:15px;margin-top:15px">
+<table id="id01" class="table">
+<tr>
+<th>Image</th>
+<th>Product Name</th>
+<th>Product Id</th>
+<th>Seller Id</th>
+<th>Price(Rs.)</th>
+
+
+</tr>
+<tr ng-repeat="p in sc">
+<td><a href="#/dis"><img ng-click= "display(p.pId)" height=100 width=100  ng-src="{{p.pImage}}"/></a></td>
+<td>{{p.pName}}</td>
+<td>{{p.pId}}</td>
+<td>{{p.sId}}</td>
+<td>{{p.pPrice}}</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+
+<td>Total</td>
+<td>{{total}}</td>
+</tr>					   
+</table>
+
+<a href="#/"><button type="button"  class="btn btn-danger" >Back To HomePage</button></a>
+<div style="margin-left:15px;margin-right:15px">	

@@ -1,0 +1,85 @@
+
+
+
+<h2>User Registration Form</h2>{{ vc.rand }}
+
+	
+<form class="form-horizontal" name="regForm" ng-submit="register()" role="form">
+	
+	<div class="form-group"><label class="control-label col-sm-3">Email-ID:</label>
+		<input type="email" class="control-label col-sm-3" placeholder="Enter Your email address" name="eId" ng-model="user.email" required>
+	</div>
+
+	<div class="form-group"><label class="control-label col-sm-3">Username:</label>
+		<input type="text" class="control-label col-sm-3" placeholder="Enter Username for you account" name="eId" ng-model="user.name" required>
+	</div>
+
+	<div class="form-group" ><label class="control-label col-sm-3">Varifacation Code:</label>
+		<input type="number" class="control-label col-sm-3" placeholder="Check your mail" onpaste="return false" name="vc" ng-model="vc.v" ng-change="updateVc()" required>
+		<span class="control-label col-sm-6" ng-class=vc.class>{{ vc.message }}</span>
+	</div>
+	
+	<div class="form-group"><label class="control-label col-sm-3">Password:</label>
+		<input type="password" class="control-label col-sm-3" ng-model="user.password" name="password" placeholder="of minimum 6 characters" ng-minlength="6" required>
+		<span class="alert alert-danger" ng-show="regForm.password.$error.minlength">password must contain minimum 6 characters</span>
+	</div>
+
+	<div class="form-group"><label class="control-label col-sm-3">Varify Password:</label>
+		<input type="password" class="control-label col-sm-3" name="vpswd" placeholder="Rewrite the password" ng-model="vpswd.v" onpaste="return false" ng-change="verifyPswd()" required>
+		<span class="control-label col-sm-6" ng-class=vpswd.class>{{ vpswd.message }}</span>
+	</div>
+
+	<div class="form-group"><label class="control-label col-sm-3">Account Type:</label>
+			<select class="control-label col-sm-3" name="aType" ng-model="user.aType">
+			    <option value="buyer">Buyer</option>
+			    <option value="seller">Seller</option>
+			    <option value="both">Both</option>
+			</select>	
+	</div>
+	
+	<div ng-hide="!user.aType">
+		
+		<div class="form-group"><label class="control-label col-sm-3">Company Name:</label>
+			<input type="text" class="control-label col-sm-3" name="cName" placeholder="Legally Registered Company Name" ng-model="user.cName" required>
+		</div>
+		<div class="form-group"><label class="control-label col-sm-3">Contact Number:</label>
+			<input type="number" class="control-label col-sm-1" name="cd" minlength="3" maxlength="3" placeholder="code" ng-model="user.llCode" required>
+			<input type="number" class="control-label col-sm-2" name="cNum" minlength="8" maxlength="8" placeholder="Landline" ng-model="user.llNum" required>
+		</div>
+		
+		<div ng-hide="user.aType=='seller'">
+			
+				<div class="form-group">
+					<label class="control-label col-sm-3">State:</label>
+					<select  class="control-label col-sm-3" ng-model="state" ng-options="x.state for x in stateList" ng-change="updateCity()"></select>
+				</div>
+			
+			<div ng-show="state">
+			
+				<div class="form-group">
+					<label class="control-label col-sm-3">City:</label>
+					<select class="control-label col-sm-3" ng-model="user.city" ng-options="y.name for y in cityList"></select>
+				</div>
+			
+			</div>
+		</div>
+		<div ng-hide="user.aType=='buyer'">
+			<div class="form-group">
+					<label class="control-label col-sm-3">Preffered States:</label>
+					<select  multiple class="control-label col-sm-3" ng-model="user.states" ng-options="x.state for x in stateList"></select>
+			</div>
+			<br/>
+					<span class="alert alert-info" >Hold down the Ctrl button to select multiple options.</span>
+			<br/><br/><br/><br/>
+		</div>
+
+		<div class="form-actions">
+            <button type="submit" ng-disabled="regForm.$invalid" class="btn btn-primary">Register</button>
+            <span class="alert alert-danger" ng-show="regForm.$invalid">Fill all filled to enable Register button</span>
+            <a href="#/login" class="btn btn-link">Cancel</a>
+        </div>
+	</div>
+	<br/><br/>
+	<!-- {{ userList }} -->
+	{{ message }}
+</form>
